@@ -1,0 +1,32 @@
+name: hello world workflow
+
+on:
+  push:
+    branches:
+      main
+  pull_request:
+    branches:
+      main
+  workflow_dispatch:
+
+jobs:
+  hello:
+    name: Hello 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      
+      - name: getting the list of files
+        run: ls -lha
+        shell: bash
+        
+      - name: github actor
+        run: echo ${{ github.actor }}
+        shell: bash
+
+      - name: dump the github event context
+        run: echo ${{ toJSON(github.event) }}
+
