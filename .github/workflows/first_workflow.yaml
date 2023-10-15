@@ -28,5 +28,6 @@ jobs:
         shell: bash
 
       - name: dump the github event context
-        run: echo ${{ toJSON(github.event) }}
+        run: echo ${{ toJSON(github.event) }} | jq
+        shell: bash
 
