@@ -6,8 +6,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
-      # A matrix strategy lets you use variables in a single job definition to automatically create multiple job runs that are based on the combinations of the variables.
+      # By default, GitHub will maximize the number of jobs run in parallel depending on runner availability. To set the maximum number of jobs that can run simultaneously when using a matrix job strategy, use
       max-parallel: 1
+      # A matrix strategy lets you use variables in a single job definition to automatically create multiple job runs that are based on the combinations of the variables.
       matrix:
         python-version: ["3.8", "3.9", "3.10"]
         
