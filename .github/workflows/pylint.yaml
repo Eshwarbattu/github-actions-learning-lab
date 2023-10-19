@@ -6,6 +6,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
+      # If fail-fast is set to true or its expression evaluates to true, GitHub will cancel all in-progress and queued jobs in the matrix if any job in the matrix fails. This property defaults to true.
+      fail-fast: false
       # By default, GitHub will maximize the number of jobs run in parallel depending on runner availability. To set the maximum number of jobs that can run simultaneously when using a matrix job strategy, use
       max-parallel: 1
       # A matrix strategy lets you use variables in a single job definition to automatically create multiple job runs that are based on the combinations of the variables.
