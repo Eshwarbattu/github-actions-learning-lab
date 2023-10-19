@@ -1,0 +1,16 @@
+name: my_environment  # Replace with the desired environment name
+channels:
+  - defaults
+
+dependencies:
+  - python=3.8  # Replace with your desired Python version
+  - numpy
+  - pandas
+  - matplotlib
+  - scikit-learn
+  - jupyter
+  - seaborn
+  - requests
+  # Add more packages as needed
+
+# You can also specify specific package versions, e.g., 'numpy=1.20'
