@@ -1,0 +1,28 @@
+# Name for the workflow
+name: Multiple environment workflow
+
+# Controls when action will run
+on:
+
+  # Allows to run the workflow manually
+  workflow_dispatch:
+
+jobs:
+
+  DEV:
+    name: Development Environment jon
+    runs-on: ubuntu-latest
+    environment: DEV
+
+  # Define the steps under the job
+    steps:
+      # Checks out the repository under $GITHUB_WORKSPACE so that the job can access it
+      -  name: Checkout Repository
+         uses: actions/checkout@v2
+      # echo the DEV environment secret & variable (one can check if the secret is encrypted or not)
+      -  name: Use the dev environment secret
+         run: |
+           echo "The Dev Environment secret: {{secrets.USER_NAME}}"
+           echo "The Dev Environment variable: {{vars.ENV_NAME}}"
+
+  
