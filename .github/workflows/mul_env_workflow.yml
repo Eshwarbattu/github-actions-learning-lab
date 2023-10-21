@@ -52,6 +52,7 @@ jobs:
          uses: actions/checkout@v2
       # echo the REPO secret & variable (one can check if the secret is encrypted or not)
       -  name: Use the repo variable
+         if: ${{ vars.ENV_NAME == "github-actions-learning-lab" }}
       # When environment not specified, repository level secrets and variables are retrieved
          run: |
            echo "Environment secret: ${{secrets.USER_NAME}}"
