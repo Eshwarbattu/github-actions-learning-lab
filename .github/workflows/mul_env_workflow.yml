@@ -21,10 +21,26 @@ jobs:
       -  name: Checkout Repository
          uses: actions/checkout@v2
       # echo the DEV environment secret & variable (one can check if the secret is encrypted or not)
-      -  name: Use the dev environment secret
+      -  name: Use the DEV environment secret
          run: |
-           echo "The Dev Environment secret: ${{secrets.USER_NAME}}"
-           echo "The Dev Environment variable: ${{vars.ENV_NAME}}"
+           echo "Environment secret: ${{secrets.USER_NAME}}"
+           echo "Environment variable: ${{vars.ENV_NAME}}"
+  PROD:
+    name: Production Environment
+    runs-on: ubuntu-latest
+    environment: 
+      name: PROD
+
+  # Define the steps under the job
+    steps:
+      # Checks out the repository under $GITHUB_WORKSPACE so that the job can access it
+      -  name: Checkout Repository
+         uses: actions/checkout@v2
+      # echo the PROD environment secret & variable (one can check if the secret is encrypted or not)
+      -  name: Use the PROD environment secret & variable
+         run: |
+           echo "Environment secret: ${{secrets.USER_NAME}}"
+           echo "Environment variable: ${{vars.ENV_NAME}}"
   REPO:
     name: Repository level
     runs-on: ubuntu-latest
@@ -34,10 +50,13 @@ jobs:
       # Checks out the repository under $GITHUB_WORKSPACE so that the job can access it
       -  name: Checkout Repository
          uses: actions/checkout@v2
-      # echo the DEV environment secret & variable (one can check if the secret is encrypted or not)
+      # echo the REPO secret & variable (one can check if the secret is encrypted or not)
       -  name: Use the repo variable
+      # When environment not specified, repository level secrets and variables are retrieved
          run: |
-           echo "Name of the repository: ${{vars.ENV_NAME}}"
+           echo "Environment secret: ${{secrets.USER_NAME}}"
+           echo "Environment variable: ${{vars.ENV_NAME}}"
+           
 
 
   
