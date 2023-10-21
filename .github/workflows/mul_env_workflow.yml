@@ -12,7 +12,8 @@ jobs:
   DEV:
     name: Development Environment jon
     runs-on: ubuntu-latest
-    environment: DEV
+    environment: 
+      name: DEV
 
   # Define the steps under the job
     steps:
@@ -22,7 +23,7 @@ jobs:
       # echo the DEV environment secret & variable (one can check if the secret is encrypted or not)
       -  name: Use the dev environment secret
          run: |
-           echo "The Dev Environment secret: {{secrets.USER_NAME}}"
-           echo "The Dev Environment variable: {{vars.ENV_NAME}}"
+           echo "The Dev Environment secret: ${{secrets.USER_NAME}}"
+           echo "The Dev Environment variable: ${{vars.ENV_NAME}}"
 
   
